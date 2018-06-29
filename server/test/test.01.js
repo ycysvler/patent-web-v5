@@ -1,4 +1,14 @@
-const assert = require("assert");
+/**
+ * 代码覆盖率单元测试
+ * istanbul cover _mocha .
+ *
+ * cnpm install -g istanbul             // 覆盖率工具
+ * cnpm install -g mocha                // 单元测试组建
+ * cnpm install --save-dev supertest    // http 测试组建
+ * cnpm install --save-dev chai         // 断言工具
+ *
+ * */
+
 const supertest = require('supertest');
 const chai = require('chai');
 const expect = chai.expect;
