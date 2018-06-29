@@ -28,11 +28,8 @@ const loader = function (loadPath) {                    // 加载一个目录
         if (fs.statSync(file).isFile() &&
             path.extname(file).toLowerCase() == '.js' &&
             path.basename(file).substr(0,1) != '.'){
-            try {
-                require(file)(router);
-            } catch(e) {
-                throw new Error("Error when loading route file "+file);
-            }
+
+            require(file)(router);
         }
     }
     return router;

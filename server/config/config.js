@@ -7,12 +7,11 @@
 module.exports = {
     // mongodb 相关配置
     mongodb: {
-        uri: 'mongodb://10.10.22.178/',
-        options: {
-            useMongoClient: true,
-            server: {socketOptions: {keepAlive: 1}},
-            replset: {socketOptions: {keepAlive: 1}}
-        }
+        uri: 'mongodb://10.10.22.205/',
+        // options: {
+        //     server: {socketOptions: {keepAlive: 1}},
+        //     replset: {socketOptions: {keepAlive: 1}}
+        // }
     },
 
     // mysql 相关配置
