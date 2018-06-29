@@ -9,16 +9,16 @@ const Koa = require('koa');                             // 引用koa框架
 const bodyparser = require('koa-bodyparser');           // 加载bodyparser中间件
 const static = require('koa-static');                   // 加载静态资源处理
 const consuming = require('./middleware/consuming');    // 加载计算耗时中间件
-const logger = require('./util/logger');                // 引用日志组建
-const loader = require('./routeloader');                // 路由加载器
+const logger = require('./utils/logger');               // 引用日志组建
+const loader = require('./utils/loader');               // 路由加载器
 const config = require('./config/config');              // 加载配置文件
 
 
 const app = new Koa();                                  // 创建koa实例化
 const log = logger('app');                              // 日志
 
-// 打一条屏显，活跃下气氛
-app.use(async (ctx, next) => {
+
+app.use(async (ctx, next) => {                          // 打一条屏显，活跃下气氛
     console.log(`${Date.now()} ${ctx.request.method} ${ctx.request.url}`);
     await next();
 });

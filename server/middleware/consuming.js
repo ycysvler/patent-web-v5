@@ -4,7 +4,7 @@
  * Created by zhanghongqing on 2018/6/28.
  */
 
-const logger = require('../util/logger');                // 引用日志组建
+const logger = require('../utils/logger');                // 引用日志组建
 
 const log = logger('time-consuming');                    // 日志
 

@@ -1,5 +1,5 @@
 const path = require('path');
-const uploadFile = require( '../../util/upload');
+const uploadFile = require( '../../utils/upload');
 
 module.exports = function(router){
     router.get('/hello', async(ctx)=>{
