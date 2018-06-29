@@ -5,7 +5,7 @@
  * Created by zhanghongqing on 2018/6/29.
  */
 const bunyan = require('bunyan');                       // 引用日志组件
-
+const path = require('path');                           // 基础库
 
 /**
  * 获取log实例
@@ -20,7 +20,13 @@ module.exports = function(name){
                 // 输出到控制台
                 {level: 'info', stream: process.stdout},
                 // 循环输出到文件
-                {level: 'info', path: 'server/logs/'+name+'.log',type: 'rotating-file',period: '1d',count: 3}
+                {
+                    level: 'info',
+                    path: path.join(__dirname, '../logs/'+name+'.log'),
+                    type: 'rotating-file',
+                    period: '1d',
+                    count: 3
+                }
             ]
         });
 
