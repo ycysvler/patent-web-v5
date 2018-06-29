@@ -4,7 +4,7 @@ module.exports = function(router){
         ctx.body = {"name":"hello"};
     });
 
-    router.get('/world', async(ctx)=>{
-        ctx.body = {"name":"world"};
+    router.post('/world', async(ctx)=>{
+        console.log(ctx.request.body, typeof ctx.request.body);
     });
 };
