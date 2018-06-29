@@ -3,8 +3,11 @@
  *
  * Created by zhanghongqing on 2018/6/28.
  */
+
+const path = require('path');                           // 基础库
 const Koa = require('koa');                             // 引用koa框架
 const bodyparser = require('koa-bodyparser');           // 加载bodyparser中间件
+const static = require('koa-static');                   // 加载静态资源处理
 const consuming = require('./middleware/consuming');    // 加载计算耗时中间件
 const logger = require('./common/logger');              // 引用日志组建
 const loader = require('./routeloader');                // 路由加载器
@@ -18,6 +21,7 @@ app.on('error', err=>{
     log.error({body:err, context:ctx},'server error');  // 全局错误处理
 });
 
+app.use(static(path.join( __dirname,  '../public')));   // 处理静态资源
 app.use(bodyparser());                                  // 使用ctx.body解析中间件
 app.use(consuming);                                     // 计算耗时中间件
 app.use(loader.routes()).use(loader.allowedMethods());  // 加载路由
