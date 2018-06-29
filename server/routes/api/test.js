@@ -1,7 +1,4 @@
-const Router = require('koa-router');
-
-module.exports = function(rootRouter){
-    let router = new Router();
+module.exports = function(router){
     router.get('/hello', async(ctx)=>{
         console.log('hello');
         ctx.body = {"name":"hello"};
@@ -10,6 +7,4 @@ module.exports = function(rootRouter){
     router.get('/world', async(ctx)=>{
         ctx.body = {"name":"world"};
     });
-
-    rootRouter.use('/api', router.routes(), router.allowedMethods());
 };
